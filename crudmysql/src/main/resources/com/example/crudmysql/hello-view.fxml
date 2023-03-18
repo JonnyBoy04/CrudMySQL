@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.crudmysql.HelloController">
+   <children>
+      <BorderPane layoutX="134.0" layoutY="150.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <Label text="Registro de jugador" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Label>
+         </top>
+         <center>
+            <GridPane BorderPane.alignment="CENTER">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="381.0" minWidth="7.0" prefWidth="25.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="478.0" minWidth="10.0" prefWidth="195.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="192.0" minWidth="10.0" prefWidth="10.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="236.0" minWidth="10.0" prefWidth="186.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="146.0" minWidth="10.0" prefWidth="15.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="176.0" minWidth="10.0" prefWidth="176.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="75.0" minWidth="10.0" prefWidth="20.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Nombre" GridPane.columnIndex="1" />
+                  <Label text="Segundo Apellido" GridPane.columnIndex="5" />
+                  <Label text="Edad" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label text="RFC" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                  <Label text="Equipo" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label text="Primer Apellido" GridPane.columnIndex="3" />
+                  <Label text="Telefono" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <Label text="Posicion" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <TextField fx:id="txtNombre" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtEdad" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="txtEquipo" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField fx:id="txtPrimerA" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtTelefono" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <TextField fx:id="txtPosicion" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                  <TextField fx:id="txtSegundoA" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtRfc" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                     <children>
+                        <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#guardarJugador" text="Save">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnModificar" mnemonicParsing="false" onAction="#modificarJugador" text="Update">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#limpiarFormulario" text="Clean">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarJugador" text="Delete">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+         </center>
+         <bottom>
+            <TableView fx:id="tblJugador" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="colNombre" prefWidth="75.0" text="NOMBRE" />
+                  <TableColumn fx:id="colEdad" prefWidth="75.0" text="EDAD" />
+                  <TableColumn fx:id="colEquipo" prefWidth="75.0" text="EQUIPO" />
+                  <TableColumn fx:id="colPosicion" prefWidth="75.0" text="POSOCION" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>
